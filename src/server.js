@@ -22,7 +22,7 @@ app.get('/get', (req, res) => {
 app.post('', (req, res) => {
     a = req.body;
     console.log(handleCookie(req.body));
-    res.cookie('a', handleCookie(req.body), { httpOnly: false, secure: true })
+    res.cookie('a', handleCookie(req.body), { httpOnly: false, secure: true, domain: 'https://fe-dkmh.vercel.app/' })
     res.send('Successfully')
 })
 
