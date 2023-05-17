@@ -10,7 +10,7 @@ app.use(express.urlencoded({
 
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: '*' }));
 
 app.use(cookieParser());
 
@@ -22,8 +22,7 @@ app.get('/get', (req, res) => {
 app.post('', (req, res) => {
     a = req.body;
     console.log(handleCookie(req.body));
-    res
-        .cookie('a', handleCookie(req.body), { httpOnly: true })
+    res.cookie('a', handleCookie(req.body), { httpOnly: true })
     res.send('Successfully')
 })
 
