@@ -23,7 +23,8 @@ app.post('', (req, res) => {
     a = req.body;
     console.log(handleCookie(req.body));
     res.cookie('a', handleCookie(req.body), { httpOnly: true, secure: true })
-    res.send('Successfully')
+    // res.send('Successfully')
+    res.redirect('https://fe-dkmh.vercel.app/')
 })
 
 app.post('/register', (req, res) => {
