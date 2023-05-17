@@ -22,7 +22,7 @@ app.get('/get', (req, res) => {
 app.post('', (req, res) => {
     a = req.body;
     console.log(handleCookie(req.body));
-    res.cookie('a', handleCookie(req.body), { httpOnly: true })
+    res.cookie('a', handleCookie(req.body), { httpOnly: true, secure: true })
     res.send('Successfully')
 })
 
