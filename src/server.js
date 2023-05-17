@@ -15,13 +15,13 @@ app.use(cors());
 app.use(cookieParser());
 
 app.get('/get', (req, res) => {
-    // console.log(req.cookies.a);
+    console.log(req.cookies.a);
     res.json({ cookie: req.cookies.a });
 })
 
 app.post('', (req, res) => {
     a = req.body;
-    // console.log(handleCookie(req.body));
+    console.log(handleCookie(req.body));
     res.cookie('a', handleCookie(req.body));
     res.send('Successfully')
 })
