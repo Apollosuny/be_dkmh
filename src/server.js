@@ -26,7 +26,10 @@ app.use(cookieParser());
 
 app.post('/register', (req, res) => {
     console.log(req.body);
-    if (req.body.cookie) 
+    if (req.body.cookie && (req.body.classes_registered !== undefined && 
+        req.body.guids_registered !== undefined) && 
+        req.body.guids_registered.length !== 0 &&
+        req.body.classes_registered.length !== 0) 
     {
         res.send({ message: "Bạn đã đăng ký môn thành công", status: 200 });
     }
@@ -36,7 +39,9 @@ app.post('/register', (req, res) => {
         req.body.guids_registered.length === 0 ||
         req.body.classes_registered.length === 0
     ) {
-        res.send({ message: "Có gì đó sai sai, hãy kiểm tra lại", status: 400 });
+        res.send({ message: "Bạn chưa chọn môn học! Hãy chọn lại", status: 400 });
+    } else {
+        res.send({ message: 'Xảy ra lỗi', status: 400 });
     }
     
 })
